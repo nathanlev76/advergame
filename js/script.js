@@ -6,13 +6,12 @@ const image = new Image;
 image.onload = drawImageActualSize; 
 
 
-image.src = 'images/logo_nws.svg';
+image.src = 'images/fonds.svg';
 
 function drawImageActualSize() {
 
-  canvas.width = 1800;
-  canvas.height = 500;
 
-  ctx.drawImage(this, 0, 0);
+
+  ctx.drawImage(this, 150, 0);
 
 }
