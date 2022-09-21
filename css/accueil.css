@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 body{
     background-color: black;
 }
@@ -11,16 +12,65 @@ body{
 
 
 #mainconteneur #nwslogo{
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
     margin-left: auto;
     margin-right: auto;
     display: block;
     margin-top: 100px;
 }
 
-p{
+#mainconteneur #playbutton{
+    margin-top: 80px;
+    cursor: pointer;
+    padding: 14px 80px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 15px;
+    background-color: #e94a34;
+    color: white;
+    border: 0;
+    font-size: 20px;
+    font-family: "Fugaz One";
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+#mainconteneur #fullscreenbutton{
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-color: #e94a34;
+    border-radius: 100%;
+    padding: 0.5%;
+    position: absolute;
+    bottom: 15px;
+}
+
+#mainconteneur button:hover{
+    transform: scale(1.1);
+}
+#title{
     font-family: 'Fugaz One';
     color: white;
     text-align: center;
+    font-size: 140%;
+}
+
+#text{
+    font-family: 'Fira Sans';
+    color: white;
+    text-align: center;
+    margin-top: 80px;
+    font-weight: 100;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+a:visited{
+    text-decoration: none; 
+}
+a:link{
+    text-decoration: none; 
 }
