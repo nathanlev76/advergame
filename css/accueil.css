@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+body{
+    background-color: black;
+}
+
+body{
+    background-image: url('../images/background_accueil.jpg');
+    background-size: 100%;
+}
+
+
+
+#mainconteneur #nwslogo{
+    height: 100px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 100px;
+}
+
+p{
+    font-family: 'Fugaz One';
+    color: white;
+    text-align: center;
+}

@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
-
-	*{
-		padding: 0;
-		margin: 0;
-		box-sizing: border-box;
-		font-family: 'Fugaz one' Arial, Helvetica, sans-serif;
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Fugaz one' Arial, Helvetica, sans-serif;
 }
+
 #image{
 background: linear-gradient( rgba(0,0,0, 0.4));
 background-size: cover;
@@ -19,30 +19,31 @@ inset: 0;
 
 }
 
-	body{
-		background-image: url(../images/banner_cursus.jpg);
-		background-repeat: no-repeat;
+body{
+	background-image: url(../images/banner_cursus.jpg);
+	background-repeat: no-repeat;
+	backdrop-filter: brightness(0.4);
 }
 
-	#logo{
+#logo{
 
-		margin-top: 37%;
-		margin-left: 90%;
+	margin-top: 37%;
+	margin-left: 90%;
 }
 
 /*carre de forme debut*/
 
-	.carre{
-		box-sizing: border-box;
-		width: 26.87em;
-		padding: 2.5em 3em;
-		background-color: aliceblue;
-		position: absolute;
-		transform: translate(-50%, -50%);
-		left: 50%;
-		top: 50%;
-		border-radius: 10px;
-		box-shadow: 0 9% 20% rgba(15, 50, 0, 0.2);
+.carre{
+	box-sizing: border-box;
+	width: 26.87em;
+	padding: 2.5em 3em;
+	background-color: aliceblue;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	border-radius: 10px;
+	box-shadow: 0 9% 20% rgba(15, 50, 0, 0.2);
 }
 
 .jeux{
