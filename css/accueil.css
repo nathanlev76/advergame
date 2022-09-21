@@ -74,3 +74,11 @@ a:visited{
 a:link{
     text-decoration: none; 
 }
+
+#mainconteneur #nwslogospe{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    height: 80px;
+    width: 80px;
+}
