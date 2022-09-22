@@ -20,10 +20,10 @@ inset: 0;
 }
 
 body{
-	background-image: url(../images/banner_cursus.jpg);
-	background-repeat: no-repeat;
-	backdrop-filter: brightness(0.4);
+    background-image: url('../images/background_accueil.jpg');
+    background-size: 100%;
 }
+
 
 #logo{
 
@@ -35,7 +35,7 @@ body{
 
 .carre{
 	box-sizing: border-box;
-	width: 26.87em;
+	width: 50em;
 	padding: 2.5em 3em;
 	background-color: aliceblue;
 	position: absolute;
@@ -50,5 +50,89 @@ body{
 	position: relative;
 	width: 100%;
 	display: grid;
+	gap: 0.6em;
 
+}
+/*
+.stats-conteneur {
+  text-align: right;
+  margin-bottom: 1.2em;
+}
+
+.stats-conteneur span {
+  font-weight: 600;
+}*/
+
+.carte-conteneur {
+  position: relative;
+  width: 6.25em;
+  height: 6.25em;
+  cursor: pointer;
+}
+
+
+.carte-before, .carte-after {
+  position: absolute;
+  border-radius: 5px;
+  width: 10%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #000000;
+  transition: transform 0.7s ease-out;
+  backface-visibility: hidden;
+}
+.carte-before {
+  font-size: 2.8em;
+  font-weight: 600;
+}
+.carte-after {
+  transform: rotateY(180deg);
+}
+.carte-conteneur.flipped .carte-before {
+  transform: rotateY(180deg);
+}
+.card-container.flipped .carte-after {
+  transform: rotateY(0deg);
+}
+.controleur {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+button {
+  border: none;
+  border-radius: 0.3em;
+  padding: 1em 1.5em;
+  cursor: pointer;
+}
+#arret {
+  font-size: 1.1em;
+  display: block;
+  margin: 1.1em auto 0 auto;
+  background-color: #000000;
+  color: #ffffff;
+}
+.controleur button {
+  font-size: 1.3em;
+  box-shadow: 0 0.6em 2em rgba(86, 66, 0, 0.2);
+}
+.cacher {
+  display: none;
+}
+#resultat {
+  text-align: center;
+}
+#resultat h2 {
+  font-size: 2.5em;
+}
+#resultat h4 {
+  font-size: 1.8em;
+  margin: 0.6em 0 1em 0;
 }
