@@ -14,14 +14,14 @@ let secondCard = false;
 // images
 
  const items = [
-	{name:"img1", image:"../images/cover.png"},
-	{name:"img2", image:"../images/helmet-1.png"},
-	{name:"img3", image:"../images/potion-1.png"},
-	{name:"img4", image:"../images/ring-1.png"},
-	{name:"img5", image:"../images/scroll-1.png"},
-	{name:"img6", image:"../images/shield-1.png"},
-	{name:"img7", image:"../images/sword-1.png"},
-	{name:"img8", image:"../images/logo192.png"},
+	{name:"img1", image:"./images/cover.png"},
+	{name:"img2", image:"./images/helmet-1.png"},
+	{name:"img3", image:"./images/potion-1.png"},
+	{name:"img4", image:"./images/ring-1.png"},
+	{name:"img5", image:"./images/scroll-1.png"},
+	{name:"img6", image:"./images/shield-1.png"},
+	{name:"img7", image:"./images/sword-1.png"},
+	{name:"img8", image:"./images/logo192.png"},
 ];
 //const nws ={name:"couve", image:"../images/logo_nws.svg"};
 
@@ -104,7 +104,7 @@ const matrixGenerator = (cardValues, size = 4) => {
 
  	jeuxContainer.innerHTML += `
 <div class="card-container" data-card-value="${cardValues[i].name}">
-        <div class="card-before">nws</div>
+        <div class="card-before"><img src="./images/nws_logo.png" height="100" width="100" class="image"/></div>
         <div class="card-after">
         <img src="${cardValues[i].image}" class="image"/></div></div>
      `;

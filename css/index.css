@@ -72,7 +72,7 @@ body{
   backface-visibility: hidden;
 }
 .card-before {
-  background-color: red;
+  background-color: white;
   font-size: 2.8em;
   font-weight: 600;
 }
