@@ -29,7 +29,7 @@ body{
 	box-shadow: 0 9% 20% rgba(15, 50, 0, 0.2);
 }
 
-.jeux{
+.jeux-container{
 	position: relative;
 	width: 100%;
 	display: grid;
@@ -48,6 +48,9 @@ body{
   width: 6.25em;
   height: 6.25em;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .card-before,
 .card-after {
