@@ -1,7 +1,10 @@
 //declaration valeur
 const moves = document.getElementById("moves-cuont");
 const tempsValue = document.getElementById("temps");
-const startButton = document.getElementById("start");
+const startDev = document.getElementById("startdev");
+const startSmm = document.getElementById("startsmm");
+const startEb = document.getElementById("starteb");
+const startCg = document.getElementById("startcg");
 const stopButton = document.getElementById("stop");
 const jeuxContainer = document.querySelector(".jeux-container");
 const resultat = document.getElementById("resultat");
@@ -12,10 +15,11 @@ let firstCard = false;
 let secondCard = false;
 let firstCardId;
 let secondCardId;
+let choixspe;
 
 // images
 
- const items = [
+ let items = [
 	{name:"img1", image:"./images/cover.png"},
 	{name:"img2", image:"./images/helmet-1.png"},
 	{name:"img3", image:"./images/potion-1.png"},
@@ -25,7 +29,19 @@ let secondCardId;
 	{name:"img7", image:"./images/sword-1.png"},
 	{name:"img8", image:"./images/logo192.png"},
 ];
-//const nws ={name:"couve", image:"../images/logo_nws.svg"};
+/*
+ const items = [
+	{name:"img1", image:"./images/cg/Ae.png"},
+	{name:"img2", image:"./images/cg/Figma.png"},
+	{name:"img3", image:"./images/cg/id.png"},
+	{name:"img4", image:"./images/cg/illustrator.png"},
+	{name:"img5", image:"./images/cg/Lightroom.png"},
+	{name:"img6", image:"./images/cg/photoshop.png"},
+	{name:"img7", image:"./images/cg/premiere.png"},
+	{name:"img8", image:"./images/cg/Xd.png"},
+];*/
+
+
 
 //gestion temps
 
@@ -182,16 +198,84 @@ const matrixGenerator = (cardValues, size = 4) => {
 
 
 //Start game
-startButton.addEventListener("click", () => {
+startDev.addEventListener("click", () => {
   movesCount = 0;
   seconds = 0;
   minutes = 0;
+  choixspe = "Dev";
+
 
   //controls amd buttons visibility
 
   controls.classList.add("hide");
   stopButton.classList.remove("hide");
-  startButton.classList.add("hide");
+  startDev.classList.add("hide");
+
+  //Start timer
+  interval = setInterval(timeGenerator, 1000);
+
+  //initial moves
+
+  moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+  initializer();
+});
+
+startCg.addEventListener("click", () => {
+  movesCount = 0;
+  seconds = 0;
+  minutes = 0;
+  choixspe = "Cg";
+
+
+  //controls amd buttons visibility
+
+  controls.classList.add("hide");
+  stopButton.classList.remove("hide");
+  startCg.classList.add("hide");
+
+  //Start timer
+  interval = setInterval(timeGenerator, 1000);
+
+  //initial moves
+
+  moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+  initializer();
+});
+
+startEb.addEventListener("click", () => {
+  movesCount = 0;
+  seconds = 0;
+  minutes = 0;
+  choixspe = "Eb";
+
+
+  //controls amd buttons visibility
+
+  controls.classList.add("hide");
+  stopButton.classList.remove("hide");
+  startEb.classList.add("hide");
+
+  //Start timer
+  interval = setInterval(timeGenerator, 1000);
+
+  //initial moves
+
+  moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+  initializer();
+});
+
+startSmm.addEventListener("click", () => {
+  movesCount = 0;
+  seconds = 0;
+  minutes = 0;
+  choixspe = "Smm";
+
+
+  //controls amd buttons visibility
+
+  controls.classList.add("hide");
+  stopButton.classList.remove("hide");
+  startSmm.classList.add("hide");
 
   //Start timer
   interval = setInterval(timeGenerator, 1000);
