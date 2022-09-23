@@ -17,101 +17,101 @@ let firstCardId;
 let secondCardId;
 let choixspe;
 
-// images
+  //gestion temps
 
- let items = [
-	{name:"img1", image:"./images/cover.png"},
-	{name:"img2", image:"./images/helmet-1.png"},
-	{name:"img3", image:"./images/potion-1.png"},
-	{name:"img4", image:"./images/ring-1.png"},
-	{name:"img5", image:"./images/scroll-1.png"},
-	{name:"img6", image:"./images/shield-1.png"},
-	{name:"img7", image:"./images/sword-1.png"},
-	{name:"img8", image:"./images/logo192.png"},
-];
-/*
- const items = [
-	{name:"img1", image:"./images/cg/Ae.png"},
-	{name:"img2", image:"./images/cg/Figma.png"},
-	{name:"img3", image:"./images/cg/id.png"},
-	{name:"img4", image:"./images/cg/illustrator.png"},
-	{name:"img5", image:"./images/cg/Lightroom.png"},
-	{name:"img6", image:"./images/cg/photoshop.png"},
-	{name:"img7", image:"./images/cg/premiere.png"},
-	{name:"img8", image:"./images/cg/Xd.png"},
-];*/
+  let seconds = 0, minutes = 0;
+
+  //direction et conteur victoire
+
+  let movesCount = 0, conteurvictoire = 0;
+
+  //temps
+
+  const timeGenerator = () => {
+    seconds += 1;
+
+      //minutes logiques
+
+    if (seconds >= 60) {
+        minutes += 1;
+        seconds = 0;
+    }
+
+      //timeur de l'ecran
+
+    let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
+    let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
+    tempsValue.innerHTML = `<span>Temps:</span>${minutesValue}:${secondsValue}`;
+
+  };
+
+  //calcul de mouvement
+
+  const movesCounter = () => {
+    movesCount += 1;
+    moves.innerHTML = `<span>Moves:</span>${movesCount}`;
+
+  };
+
+  //objects aleatoires
+
+  const generateRandom = (choixspe, size = 4) => {
+    console.log(choixspe)
+    if (choixspe == "Dev"){
+      var items = [
+        {name:"img1", image:"./images/cover.png"},
+        {name:"img2", image:"./images/helmet-1.png"},
+        {name:"img3", image:"./images/potion-1.png"},
+        {name:"img4", image:"./images/ring-1.png"},
+        {name:"img5", image:"./images/scroll-1.png"},
+        {name:"img6", image:"./images/shield-1.png"},
+        {name:"img7", image:"./images/sword-1.png"},
+        {name:"img8", image:"./images/logo192.png"},
+    ];
+  }
+    else if (choixspe == "Cg"){
+      var items = [
+        {name:"img1", image:"./images/cg/Ae.png"},
+        {name:"img2", image:"./images/cg/Figma.png"},
+        {name:"img3", image:"./images/cg/id.png"},
+        {name:"img4", image:"./images/cg/illustrator.png"},
+        {name:"img5", image:"./images/cg/Lightroom.png"},
+        {name:"img6", image:"./images/cg/photoshop.png"},
+        {name:"img7", image:"./images/cg/premiere.png"},
+        {name:"img8", image:"./images/cg/Xd.png"},
+      ];
+  }
+
+  
+  //temporaire
+
+    let tempArray = [...items];
+
+  //carte valeur
+
+    let cardValues = [];
+
+  //taile des items 4*4 / 2 tailes et paires
+
+    size = (size * size) / 2;
+
+  //selection d'objects
+
+    for (let i = 0; i < size; i++) {
+      const randomIndex = Math.floor(Math.random() * tempArray.length);
+      cardValues.push(tempArray[randomIndex]);
+
+  //section et suppression d'objects
+
+      tempArray.splice(randomIndex, 1);
+  }
+
+    return cardValues;
+  };
 
 
 
-//gestion temps
-
-let seconds = 0, minutes = 0;
-
-//direction et conteur victoire
-
-let movesCount = 0, conteurvictoire = 0;
-
-//temps
-
-const timeGenerator = () => {
-	seconds += 1;
-
-		//minutes logiques
-
-	if (seconds >= 60) {
-			minutes += 1;
-			seconds = 0;
-	}
-
-		//timeur de l'ecran
-
-	let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
-	let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
-	tempsValue.innerHTML = `<span>Temps:</span>${minutesValue}:${secondsValue}`;
-
-};
-
-//calcul de mouvement
-
-const movesCounter = () => {
-	movesCount += 1;
-	moves.innerHTML = `<span>Moves:</span>${movesCount}`;
-
-};
-
-//objects aleatoires
-
-const generateRandom = (size = 4) => {
-
- //temporaire
-
-	let tempArray = [...items];
-
-//carte valeur
-
-	let cardValues = [];
-
-//taile des items 4*4 / 2 tailes et paires
-
-	size = (size * size) / 2;
-
-//selection d'objects
-
-	for (let i = 0; i < size; i++) {
-		const randomIndex = Math.floor(Math.random() * tempArray.length);
-		cardValues.push(tempArray[randomIndex]);
-
-//section et suppression d'objects
-
-		tempArray.splice(randomIndex, 1);
-}
-
-	return cardValues;
-};
-
-
-
-const matrixGenerator = (cardValues, size = 4) => {
+const matrixGenerator = (cardValues, choixspe, size = 4) => {
 	jeuxContainer.innerHTML ="";
 	cardValues = [...cardValues, ...cardValues];
 
@@ -217,7 +217,7 @@ startDev.addEventListener("click", () => {
   //initial moves
 
   moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
-  initializer();
+  initializer(choixspe);
 });
 
 startCg.addEventListener("click", () => {
@@ -239,7 +239,7 @@ startCg.addEventListener("click", () => {
   //initial moves
 
   moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
-  initializer();
+  initializer(choixspe);
 });
 
 startEb.addEventListener("click", () => {
@@ -261,7 +261,7 @@ startEb.addEventListener("click", () => {
   //initial moves
 
   moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
-  initializer();
+  initializer(choixspe);
 });
 
 startSmm.addEventListener("click", () => {
@@ -283,7 +283,7 @@ startSmm.addEventListener("click", () => {
   //initial moves
 
   moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
-  initializer();
+  initializer(choixspe);
 });
 
 //arret du jeu
@@ -302,11 +302,12 @@ stopButton.addEventListener(
 
 //demarrage des valeurs et appels des fonction
 
-const initializer = () => {
+const initializer = (choixspe) => {
 
 	resultat.innerText = "";
+  console.log("Choix de spé: " + choixspe)
 	conteurvictoire = 0;
-	let cardValues = generateRandom();
+	let cardValues = generateRandom(choixspe);
 	console.log(cardValues);
-	matrixGenerator(cardValues);
+	matrixGenerator(cardValues, choixspe);
 };
