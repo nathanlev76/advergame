@@ -51,8 +51,8 @@ body{
 }
 .card-container {
   position: relative;
-  width: 6.25em;
-  height: 6.25em;
+  width: 8em;
+  height: 8em;
   cursor: pointer;
   display: flex;
   justify-content: center;
