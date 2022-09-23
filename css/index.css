@@ -6,36 +6,19 @@
 	font-family: 'Fugaz one' Arial, Helvetica, sans-serif;
 }
 
-#image{
-background: linear-gradient( rgba(0,0,0, 0.4));
-background-size: cover;
-height: 100vh;
-}
-
-#image::after{
-content:'';
-z-index: -1;
-inset: 0;
-
-}
 
 body{
     background-image: url('../images/background_accueil.jpg');
-    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 
-#logo{
-
-	margin-top: 37%;
-	margin-left: 90%;
-}
 
 /*carre de forme debut*/
 
 .carre{
 	box-sizing: border-box;
-	width: 50em;
+	width: 5em;
 	padding: 2.5em 3em;
 	background-color: aliceblue;
 	position: absolute;
@@ -50,32 +33,28 @@ body{
 	position: relative;
 	width: 100%;
 	display: grid;
-	gap: 0.6em;
-
 }
-/*
-.stats-conteneur {
+
+
+.stats-container {
   text-align: right;
   margin-bottom: 1.2em;
 }
-
-.stats-conteneur span {
+.stats-container span {
   font-weight: 600;
-}*/
-
-.carte-conteneur {
+}
+.card-container {
   position: relative;
   width: 6.25em;
   height: 6.25em;
   cursor: pointer;
 }
-
-
-.carte-before, .carte-after {
+.card-before,
+.card-after {
   position: absolute;
   border-radius: 5px;
-  width: 10%;
-  height: 10%;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,20 +62,22 @@ body{
   transition: transform 0.7s ease-out;
   backface-visibility: hidden;
 }
-.carte-before {
+.card-before {
+  background-color: #f4c531;
   font-size: 2.8em;
   font-weight: 600;
 }
-.carte-after {
+.card-after {
+  background-color: #ffffff;
   transform: rotateY(180deg);
 }
-.carte-conteneur.flipped .carte-before {
+.card-container.flipped .card-before {
   transform: rotateY(180deg);
 }
-.card-container.flipped .carte-after {
+.card-container.flipped .card-after {
   transform: rotateY(0deg);
 }
-.controleur {
+.controls-container {
   position: absolute;
   display: flex;
   align-items: center;
@@ -104,6 +85,7 @@ body{
   flex-direction: column;
   width: 100%;
   height: 100%;
+  background-color: #f4c531;
   top: 0;
 }
 button {
@@ -112,18 +94,18 @@ button {
   padding: 1em 1.5em;
   cursor: pointer;
 }
-#arret {
+#stop {
   font-size: 1.1em;
   display: block;
   margin: 1.1em auto 0 auto;
   background-color: #000000;
   color: #ffffff;
 }
-.controleur button {
+.controls-container button {
   font-size: 1.3em;
   box-shadow: 0 0.6em 2em rgba(86, 66, 0, 0.2);
 }
-.cacher {
+.hide {
   display: none;
 }
 #resultat {
