@@ -12,13 +12,19 @@ body{
     background-repeat: no-repeat;
 }
 
-
+#title{
+  font-family: 'Fugaz One';
+  margin-top: 1%;
+  color: white;
+  text-align: center;
+  font-size: 140%;
+}
 
 /*carre de forme debut*/
 
 .carre{
 	box-sizing: border-box;
-	width: 5em;
+	width: 32em;
 	padding: 2.5em 3em;
 	background-color: aliceblue;
 	position: absolute;
