@@ -10,6 +10,8 @@ let cards;
 let interval;
 let firstCard = false;
 let secondCard = false;
+let firstCardId;
+let secondCardId;
 
 // images
 
@@ -103,7 +105,7 @@ const matrixGenerator = (cardValues, size = 4) => {
 	for (let i = 0; i < size * size ; i++) {
 
  	jeuxContainer.innerHTML += `
-<div class="card-container" data-card-value="${cardValues[i].name}">
+<div class="card-container" data-card-value="${cardValues[i].name}" card-id="${i}">
         <div class="card-before"><img src="./images/nws_logo.png" height="100" width="100" class="image"/></div>
         <div class="card-after">
         <img src="${cardValues[i].image}" class="image"/></div></div>
@@ -134,18 +136,21 @@ const matrixGenerator = (cardValues, size = 4) => {
           //carte actuellle = cart1
 
           firstCardValue = card.getAttribute("data-card-value");
+          firstCardId = card.getAttribute("card-id");
+          console.log(firstCardId)
         } else {
-
-          movesCounter();
 
           //valeur de la carte 2
 
           secondCard = card;
           let secondCardValue = card.getAttribute("data-card-value");
-          if (firstCardValue == secondCardValue) {
+          secondCardId = card.getAttribute("card-id");
+          console.log(secondCardId)
+          if (firstCardValue == secondCardValue && firstCardId != secondCardId) {
 
             firstCard.classList.add("matched");
             secondCard.classList.add("matched");
+            movesCounter();
 
 
             firstCard = false;
@@ -159,14 +164,15 @@ const matrixGenerator = (cardValues, size = 4) => {
             }
           } else {
             //si les carte de match pas retour a la normal
-
-            let [tempFirst, tempSecond] = [firstCard, secondCard];
-            firstCard = false;
-            secondCard = false;
-            let delay = setTimeout(() => {
-              tempFirst.classList.remove("flipped");
-              tempSecond.classList.remove("flipped");
-            }, 900);
+            if (firstCardId != secondCardId){
+              let [tempFirst, tempSecond] = [firstCard, secondCard];
+              movesCounter();
+              firstCard = false;
+              secondCard = false;
+              let delay = setTimeout(() => {
+                tempFirst.classList.remove("flipped");
+                tempSecond.classList.remove("flipped");
+              }, 900);}
           }
         }
       }
