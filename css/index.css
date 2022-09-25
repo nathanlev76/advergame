@@ -67,18 +67,24 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 4px solid #000000;
+  /*border: 3px solid #000000;*/
   transition: transform 0.7s ease-out;
   backface-visibility: hidden;
 }
+
+#victorytitle{
+  color: green
+}
+
 .card-before {
-  background-color: white;
+  background-color: transparent;
   font-size: 2.8em;
   font-weight: 600;
 }
 .card-after {
-  background-color: #ffffff;
+  background-color: transparent;
   transform: rotateY(180deg);
+  cursor: default;
 }
 .card-container.flipped .card-before {
   transform: rotateY(180deg);

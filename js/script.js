@@ -16,6 +16,8 @@ let secondCard = false;
 let firstCardId;
 let secondCardId;
 let choixspe;
+var cardFlip = new Audio('./audio/flip.mp3');
+
 
   //gestion temps
 
@@ -49,7 +51,7 @@ let choixspe;
 
   const movesCounter = () => {
     movesCount += 1;
-    moves.innerHTML = `<span>Moves:</span>${movesCount}`;
+    moves.innerHTML = `<span>Mouvements: </span>${movesCount}`;
 
   };
 
@@ -59,14 +61,14 @@ let choixspe;
     console.log(choixspe)
     if (choixspe == "Dev"){
       var items = [
-        {name:"img1", image:"./images/cover.png"},
-        {name:"img2", image:"./images/helmet-1.png"},
-        {name:"img3", image:"./images/potion-1.png"},
-        {name:"img4", image:"./images/ring-1.png"},
-        {name:"img5", image:"./images/scroll-1.png"},
-        {name:"img6", image:"./images/shield-1.png"},
-        {name:"img7", image:"./images/sword-1.png"},
-        {name:"img8", image:"./images/logo192.png"},
+        {name:"img1", image:"./images/dev/php.png"},
+        {name:"img2", image:"./images/dev/python.png"},
+        {name:"img3", image:"./images/dev/reactjs.png"},
+        {name:"img4", image:"./images/dev/mysql.png"},
+        {name:"img5", image:"./images/dev/java.png"},
+        {name:"img6", image:"./images/dev/cplusplus.png"},
+        {name:"img7", image:"./images/dev/csharp.png"},
+        {name:"img8", image:"./images/dev/html.png"},
     ];
   }
     else if (choixspe == "Cg"){
@@ -81,6 +83,30 @@ let choixspe;
         {name:"img8", image:"./images/cg/Xd.png"},
       ];
   }
+  else if (choixspe == "Eb"){
+    var items = [
+      {name:"img1", image:"./images/cg/Ae.png"},
+      {name:"img2", image:"./images/cg/Figma.png"},
+      {name:"img3", image:"./images/cg/id.png"},
+      {name:"img4", image:"./images/cg/illustrator.png"},
+      {name:"img5", image:"./images/cg/Lightroom.png"},
+      {name:"img6", image:"./images/cg/photoshop.png"},
+      {name:"img7", image:"./images/cg/premiere.png"},
+      {name:"img8", image:"./images/cg/Xd.png"},
+    ];
+}
+else if (choixspe == "Smm"){
+  var items = [
+    {name:"img1", image:"./images/cg/Ae.png"},
+    {name:"img2", image:"./images/cg/Figma.png"},
+    {name:"img3", image:"./images/cg/id.png"},
+    {name:"img4", image:"./images/cg/illustrator.png"},
+    {name:"img5", image:"./images/cg/Lightroom.png"},
+    {name:"img6", image:"./images/cg/photoshop.png"},
+    {name:"img7", image:"./images/cg/premiere.png"},
+    {name:"img8", image:"./images/cg/Xd.png"},
+  ];
+}
 
   
   //temporaire
@@ -122,9 +148,9 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
 
  	jeuxContainer.innerHTML += `
 <div class="card-container" data-card-value="${cardValues[i].name}" card-id="${i}">
-        <div class="card-before"><img src="./images/nws_logo.png" height="100" width="100" class="image"/></div>
+        <div class="card-before"><img src="./images/${choixspe.toLowerCase()}_logo.png" height="114" width="114" class="image"/></div>
         <div class="card-after">
-        <img src="${cardValues[i].image}" class="image"/></div></div>
+        <img src="${cardValues[i].image}" class="image" height="114" width="114"/></div></div>
      `;
   }
 
@@ -138,7 +164,10 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
   cards = document.querySelectorAll(".card-container");
   cards.forEach((card) => {
     card.addEventListener("click", () => {
-
+      cardFlip.pause();
+      cardFlip.currentTime = 0;
+      cardFlip.volume = 0.2;
+      cardFlip.play();
       if (!card.classList.contains("matched")) {
 
         //flip et changement de carte
@@ -174,8 +203,8 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
             conteurvictoire += 1;
           
             if (conteurvictoire == Math.floor(cardValues.length / 2)) {
-              resultat.innerHTML = `<h2>Victoire</h2>
-            <h4>Moves: ${movesCount}</h4>`;
+              resultat.innerHTML = `<h2 id="victorytitle">VICTOIRE !</h2>
+            <h4>Mouvements: ${movesCount}</h4>`;
               stopGame();
             }
           } else {
@@ -210,13 +239,16 @@ startDev.addEventListener("click", () => {
   controls.classList.add("hide");
   stopButton.classList.remove("hide");
   startDev.classList.add("hide");
+  startEb.classList.add("hide");
+  startSmm.classList.add("hide");
+  startCg.classList.add("hide");
 
   //Start timer
   interval = setInterval(timeGenerator, 1000);
 
   //initial moves
 
-  moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+  moves.innerHTML = `<span>Mouvements</span> ${movesCount}`;
   initializer(choixspe);
 });
 
@@ -231,6 +263,9 @@ startCg.addEventListener("click", () => {
 
   controls.classList.add("hide");
   stopButton.classList.remove("hide");
+  startDev.classList.add("hide");
+  startEb.classList.add("hide");
+  startSmm.classList.add("hide");
   startCg.classList.add("hide");
 
   //Start timer
@@ -252,8 +287,10 @@ startEb.addEventListener("click", () => {
   //controls amd buttons visibility
 
   controls.classList.add("hide");
-  stopButton.classList.remove("hide");
+  startDev.classList.add("hide");
   startEb.classList.add("hide");
+  startSmm.classList.add("hide");
+  startCg.classList.add("hide");
 
   //Start timer
   interval = setInterval(timeGenerator, 1000);
@@ -275,7 +312,10 @@ startSmm.addEventListener("click", () => {
 
   controls.classList.add("hide");
   stopButton.classList.remove("hide");
+  startDev.classList.add("hide");
+  startEb.classList.add("hide");
   startSmm.classList.add("hide");
+  startCg.classList.add("hide");
 
   //Start timer
   interval = setInterval(timeGenerator, 1000);
@@ -294,6 +334,7 @@ stopButton.addEventListener(
     controls.classList.remove("hide");
     stopButton.classList.add("hide");
     startButton.classList.remove("hide");
+    startDev.classList.remove("hide");
     clearInterval(interval);
   })
 );
