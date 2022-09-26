@@ -17,6 +17,8 @@ let firstCardId;
 let secondCardId;
 let choixspe;
 var cardFlip = new Audio('./audio/flip.mp3');
+var cardUnflip = new Audio('./audio/unflip.mp3');
+let comboCard = 0;
 
 
   //gestion temps
@@ -182,7 +184,6 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
 
           firstCardValue = card.getAttribute("data-card-value");
           firstCardId = card.getAttribute("card-id");
-          console.log(firstCardId)
         } else {
 
           //valeur de la carte 2
@@ -190,9 +191,9 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
           secondCard = card;
           let secondCardValue = card.getAttribute("data-card-value");
           secondCardId = card.getAttribute("card-id");
-          console.log(secondCardId)
           if (firstCardValue == secondCardValue && firstCardId != secondCardId) {
-
+            comboCard++;
+            console.log(comboCard);
             firstCard.classList.add("matched");
             secondCard.classList.add("matched");
             movesCounter();
@@ -210,8 +211,11 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
           } else {
             //si les carte de match pas retour a la normal
             if (firstCardId != secondCardId){
+              comboCard = 0;
+              console.log(comboCard);
               let [tempFirst, tempSecond] = [firstCard, secondCard];
               movesCounter();
+              comboCard = 0;
               firstCard = false;
               secondCard = false;
               let delay = setTimeout(() => {
@@ -346,9 +350,7 @@ stopButton.addEventListener(
 const initializer = (choixspe) => {
 
 	resultat.innerText = "";
-  console.log("Choix de spé: " + choixspe)
 	conteurvictoire = 0;
 	let cardValues = generateRandom(choixspe);
-	console.log(cardValues);
 	matrixGenerator(cardValues, choixspe);
 };
