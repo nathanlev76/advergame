@@ -16,6 +16,7 @@ let secondCard = false;
 let firstCardId;
 let secondCardId;
 let choixspe;
+let blgodmode = false;
 var cardFlip = new Audio('./audio/flip.mp3');
 var cardUnflip = new Audio('./audio/unflip.mp3');
 let comboCard = 0;
@@ -148,14 +149,23 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
 
 	cardValues.sort(() => Math.random() - 0.5);
 	for (let i = 0; i < size * size ; i++) {
+    if(blgodmode){
+      jeuxContainer.innerHTML += `
+      <div class="card-container" data-card-value="${cardValues[i].name}" card-id="${i}">
+              <div class="card-before"><img src="${cardValues[i].image}" height="114" width="114" class="image"/></div>
+              <div class="card-after">
+              <img src="${cardValues[i].image}" class="image" height="114" width="114"/></div></div>
+          `;
+      } 
+    else {
+      jeuxContainer.innerHTML += 
+      `<div class="card-container" data-card-value="${cardValues[i].name}" card-id="${i}">
+       <div class="card-before"><img src="./images/${choixspe.toLowerCase()}_logo.png" height="114" width="114" class="image"/></div>
+       <div class="card-after"><img src="${cardValues[i].image}" class="image" height="114" width="114"/></div></div>`;
+        }
+  }  
 
- 	jeuxContainer.innerHTML += `
-<div class="card-container" data-card-value="${cardValues[i].name}" card-id="${i}">
-        <div class="card-before"><img src="./images/${choixspe.toLowerCase()}_logo.png" height="114" width="114" class="image"/></div>
-        <div class="card-after">
-        <img src="${cardValues[i].image}" class="image" height="114" width="114"/></div></div>
-     `;
-  }
+
 
   //Grid
 
@@ -196,7 +206,7 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
             comboCard++;
             if (comboCard == 2){
               var combo2 = new Audio('./audio/combo2.wav');
-              victory.play();  
+              combo2.play();  
             }
             console.log(comboCard);
             firstCard.classList.add("matched");
@@ -303,3 +313,7 @@ const initializer = (choixspe) => {
 	let cardValues = generateRandom(choixspe);
 	matrixGenerator(cardValues, choixspe);
 };
+
+const godmode = () => {
+  blgodmode = true
+}
