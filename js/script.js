@@ -19,6 +19,7 @@ let choixspe;
 let blgodmode = false;
 var cardFlip = new Audio('./audio/flip.mp3');
 var cardUnflip = new Audio('./audio/unflip.mp3');
+var backgroundmusic = new Audio('./audio/background-music.mp3');
 let comboCard = 0;
 
 
@@ -241,6 +242,7 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
               resultat.innerHTML = `<h2 id="victorytitle">VICTOIRE !</h2>
               <h4>Mouvements: ${movesCount}</h4>`;
               var victory = new Audio('./audio/victory.wav');
+              backgroundmusic.pause();
               victory.play();
               stopGame();
             }
@@ -331,6 +333,8 @@ const initializer = (choixspe) => {
 	conteurvictoire = 0;
 	let cardValues = generateRandom(choixspe);
 	matrixGenerator(cardValues, choixspe);
+  backgroundmusic.volume = 0.3
+  backgroundmusic.play();
 };
 
 const godmode = () => {
