@@ -177,10 +177,13 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
   cards = document.querySelectorAll(".card-container");
   cards.forEach((card) => {
     card.addEventListener("click", () => {
-      cardFlip.pause();
-      cardFlip.currentTime = 0;
-      cardFlip.volume = 0.2;
-      cardFlip.play();
+      if(!card.classList.contains("flipped")){
+        cardFlip.pause();
+        cardFlip.currentTime = 0;
+        cardFlip.volume = 0.2;
+        cardFlip.play();
+      }
+
       if (!card.classList.contains("matched")) {
 
         //flip et changement de carte
