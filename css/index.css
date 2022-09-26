@@ -27,8 +27,8 @@ body{
 .carre{
 	box-sizing: border-box;
 	width: 40em;
+  color: #ffffff;
 	padding: 2.5em 3em;
-	background-color: aliceblue;
 	position: absolute;
 	transform: translate(-50%, -50%);
 	left: 50%;

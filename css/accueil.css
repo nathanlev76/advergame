@@ -61,14 +61,18 @@ button:hover{
  .playbutton{
     margin-top: 5%;
     cursor: pointer;
-    padding: 14px 80px;
+    padding: 14px 70px;
     border-radius: 15px;
     background-color: #e94a34;
     color: white;
-    font-size: 40px;
+    font-size: 20px;
     font-family: "Fugaz One";
     transition: all 0.3s;
 }
+  .playbutton:hover{
+    transform: scale(1.1);
+}
+
 
 #mainconteneur #fullscreenbutton{
     cursor: pointer;
