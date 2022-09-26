@@ -21,6 +21,7 @@ var cardUnflip = new Audio('./audio/unflip.mp3');
 let comboCard = 0;
 
 
+
   //gestion temps
 
   let seconds = 0, minutes = 0;
@@ -53,7 +54,7 @@ let comboCard = 0;
 
   const movesCounter = () => {
     movesCount += 1;
-    moves.innerHTML = `<span>Mouvements: </span>${movesCount}`;
+    moves.innerHTML = `<span>Mouvements:</span> ${movesCount}</br><span>Combo</span>: ${comboCard}`;
 
   };
 
@@ -193,6 +194,10 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
           secondCardId = card.getAttribute("card-id");
           if (firstCardValue == secondCardValue && firstCardId != secondCardId) {
             comboCard++;
+            if (comboCard == 2){
+              var combo2 = new Audio('./audio/combo2.wav');
+              victory.play();  
+            }
             console.log(comboCard);
             firstCard.classList.add("matched");
             secondCard.classList.add("matched");
@@ -205,7 +210,9 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
           
             if (conteurvictoire == Math.floor(cardValues.length / 2)) {
               resultat.innerHTML = `<h2 id="victorytitle">VICTOIRE !</h2>
-            <h4>Mouvements: ${movesCount}</h4>`;
+              <h4>Mouvements: ${movesCount}</h4>`;
+              var victory = new Audio('./audio/victory.wav');
+              victory.play();
               stopGame();
             }
           } else {
@@ -229,105 +236,47 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
   });
 };
 
+startGame = (choixspe) => {
+  movesCount = 0;
+  seconds = 0;
+  minutes = 0;
+  controls.classList.add("hide");
+  stopButton.classList.remove("hide");
+  startDev.classList.add("hide");
+  startEb.classList.add("hide");
+  startSmm.classList.add("hide");
+  startCg.classList.add("hide");
+
+  //Start timer
+  interval = setInterval(timeGenerator, 1000);
+
+  //initial moves
+
+  moves.innerHTML = `<span>Mouvements:</span> ${movesCount}</br><span>Combo</span>: ${comboCard}`;
+  initializer(choixspe);
+}
+
+
 
 //Start game
 startDev.addEventListener("click", () => {
-  movesCount = 0;
-  seconds = 0;
-  minutes = 0;
   choixspe = "Dev";
-
-
-  //controls amd buttons visibility
-
-  controls.classList.add("hide");
-  stopButton.classList.remove("hide");
-  startDev.classList.add("hide");
-  startEb.classList.add("hide");
-  startSmm.classList.add("hide");
-  startCg.classList.add("hide");
-
-  //Start timer
-  interval = setInterval(timeGenerator, 1000);
-
-  //initial moves
-
-  moves.innerHTML = `<span>Mouvements</span> ${movesCount}`;
-  initializer(choixspe);
+  startGame(choixspe);
 });
 
 startCg.addEventListener("click", () => {
-  movesCount = 0;
-  seconds = 0;
-  minutes = 0;
   choixspe = "Cg";
-
-
-  //controls amd buttons visibility
-
-  controls.classList.add("hide");
-  stopButton.classList.remove("hide");
-  startDev.classList.add("hide");
-  startEb.classList.add("hide");
-  startSmm.classList.add("hide");
-  startCg.classList.add("hide");
-
-  //Start timer
-  interval = setInterval(timeGenerator, 1000);
-
-  //initial moves
-
-  moves.innerHTML = `<span>Mouvements:</span> ${movesCount}`;
-  initializer(choixspe);
+  startGame(choixspe);
 });
 
 startEb.addEventListener("click", () => {
-  movesCount = 0;
-  seconds = 0;
-  minutes = 0;
   choixspe = "Eb";
-
-
-  //controls amd buttons visibility
-
-  controls.classList.add("hide");
-  startDev.classList.add("hide");
-  startEb.classList.add("hide");
-  startSmm.classList.add("hide");
-  startCg.classList.add("hide");
-
-  //Start timer
-  interval = setInterval(timeGenerator, 1000);
-
-  //initial moves
-
-  moves.innerHTML = `<span>Mouvements:</span> ${movesCount}`;
-  initializer(choixspe);
+  startGame(choixspe);
 });
 
 startSmm.addEventListener("click", () => {
-  movesCount = 0;
-  seconds = 0;
-  minutes = 0;
   choixspe = "Smm";
-
-
-  //controls amd buttons visibility
-
-  controls.classList.add("hide");
-  stopButton.classList.remove("hide");
-  startDev.classList.add("hide");
-  startEb.classList.add("hide");
-  startSmm.classList.add("hide");
-  startCg.classList.add("hide");
-
-  //Start timer
-  interval = setInterval(timeGenerator, 1000);
-
-  //initial moves
-
-  moves.innerHTML = `<span>Mouvements:</span> ${movesCount}`;
-  initializer(choixspe);
+  startGame(choixspe);
 });
 
 //arret du jeu
