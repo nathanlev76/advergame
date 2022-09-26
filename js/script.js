@@ -273,7 +273,7 @@ startCg.addEventListener("click", () => {
 
   //initial moves
 
-  moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+  moves.innerHTML = `<span>Mouvements:</span> ${movesCount}`;
   initializer(choixspe);
 });
 
@@ -297,7 +297,7 @@ startEb.addEventListener("click", () => {
 
   //initial moves
 
-  moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+  moves.innerHTML = `<span>Mouvements:</span> ${movesCount}`;
   initializer(choixspe);
 });
 
@@ -322,7 +322,7 @@ startSmm.addEventListener("click", () => {
 
   //initial moves
 
-  moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+  moves.innerHTML = `<span>Mouvements:</span> ${movesCount}`;
   initializer(choixspe);
 });
 
