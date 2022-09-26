@@ -205,8 +205,24 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
           if (firstCardValue == secondCardValue && firstCardId != secondCardId) {
             comboCard++;
             if (comboCard == 2){
-              var combo2 = new Audio('./audio/combo2.wav');
+              var combo2 = new Audio('./audio/add/V1.ogg');
               combo2.play();  
+            }
+            else if (comboCard == 3){
+              var combo3 = new Audio('./audio/add/V2.ogg');
+              combo3.play();  
+            }
+            else if (comboCard == 4){
+              var combo4 = new Audio('./audio/add/V3.ogg');
+              combo4.play();  
+            }
+            else if (comboCard == 5){
+              var combo5 = new Audio('./audio/add/V4.ogg');
+              combo5.play();  
+            }
+            else if (comboCard >= 6){
+              var combo6 = new Audio('./audio/add/V5.ogg');
+              combo6.play();  
             }
             console.log(comboCard);
             firstCard.classList.add("matched");
