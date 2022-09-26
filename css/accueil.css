@@ -20,7 +20,7 @@ body{
     margin-top: 100px;
 }
 
-#mainconteneur #playbutton{
+#mainconteneur .playbutton{
     margin-top: 80px;
     cursor: pointer;
     padding: 14px 80px;
@@ -35,6 +35,39 @@ body{
     font-family: "Fugaz One";
     transition: all 0.3s;
     text-decoration: none;
+}
+
+#wrap{
+    padding: 0  0  0  20%;
+    background-color: none;
+    width: 70%;
+    cursor: pointer;
+    flex-wrap: wrap;
+}
+
+.specialites{
+    margin-top: 12%;
+    margin-right: 15%;
+    border-radius: 15px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
+
+ .playbutton{
+    margin-top: 5%;
+    cursor: pointer;
+    padding: 14px 80px;
+    border-radius: 15px;
+    background-color: #e94a34;
+    color: white;
+    font-size: 40px;
+    font-family: "Fugaz One";
+    transition: all 0.3s;
 }
 
 #mainconteneur #fullscreenbutton{
