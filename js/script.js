@@ -334,6 +334,7 @@ const initializer = (choixspe) => {
 	let cardValues = generateRandom(choixspe);
 	matrixGenerator(cardValues, choixspe);
   backgroundmusic.volume = 0.3
+  backgroundmusic.loop = true;
   backgroundmusic.play();
 };
 
