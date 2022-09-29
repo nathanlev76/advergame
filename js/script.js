@@ -90,26 +90,26 @@ let comboCard = 0;
   }
   else if (choixspe == "Eb"){
     var items = [
-      {name:"img1", image:"./images/cg/Ae.png"},
-      {name:"img2", image:"./images/cg/Figma.png"},
-      {name:"img3", image:"./images/cg/id.png"},
-      {name:"img4", image:"./images/cg/illustrator.png"},
-      {name:"img5", image:"./images/cg/Lightroom.png"},
-      {name:"img6", image:"./images/cg/photoshop.png"},
-      {name:"img7", image:"./images/cg/premiere.png"},
-      {name:"img8", image:"./images/cg/Xd.png"},
+      {name:"img1", image:"./images/eb/adsense.png"},
+      {name:"img2", image:"./images/eb/analytics.png"},
+      {name:"img3", image:"./images/eb/frog.png"},
+      {name:"img4", image:"./images/eb/hubspot.png"},
+      {name:"img5", image:"./images/eb/mailchimp.png"},
+      {name:"img6", image:"./images/eb/semrush.png"},
+      {name:"img7", image:"./images/eb/sheet.png"},
+      {name:"img8", image:"./images/eb/wordpress.png"},
     ];
 }
 else if (choixspe == "Smm"){
   var items = [
-    {name:"img1", image:"./images/cg/Ae.png"},
-    {name:"img2", image:"./images/cg/Figma.png"},
-    {name:"img3", image:"./images/cg/id.png"},
-    {name:"img4", image:"./images/cg/illustrator.png"},
-    {name:"img5", image:"./images/cg/Lightroom.png"},
-    {name:"img6", image:"./images/cg/photoshop.png"},
-    {name:"img7", image:"./images/cg/premiere.png"},
-    {name:"img8", image:"./images/cg/Xd.png"},
+    {name:"img1", image:"./images/smm/facebook.png"},
+    {name:"img2", image:"./images/smm/unnamed.png"},
+    {name:"img3", image:"./images/smm/instagram.png"},
+    {name:"img4", image:"./images/smm/linkedin.png"},
+    {name:"img5", image:"./images/smm/pinterest.png"},
+    {name:"img6", image:"./images/smm/raw.png"},
+    {name:"img7", image:"./images/smm/tiktok.png"},
+    {name:"img8", image:"./images/smm/youtube.png"},
   ];
 }
 
@@ -339,5 +339,5 @@ const initializer = (choixspe) => {
 };
 
 const godmode = () => {
-  blgodmode = true
+  blgodmode = true;
 }
