@@ -108,7 +108,7 @@ h4{
 #combo5{
   color: red;
   text-shadow: 0px -2px 4px #fff, 0px -2px 10px #FF3, 0px -10px 20px         #F90, 0px -20px 40px #C33;
-  font-size: 150%;
+  transition: 0.3s;
 }
 
 

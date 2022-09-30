@@ -23,6 +23,7 @@ var cardUnflip = new Audio('./audio/unflip.mp3');
 var backgroundmusic = new Audio('./audio/background-music.mp3');
 let comboCard = 0;
 let findText = document.getElementById("find");
+let bestCombo = 0;
 
 
 
@@ -77,7 +78,10 @@ let findText = document.getElementById("find");
     else if(comboCard >= 6){
       moves.innerHTML = `<span>Mouvements:</span> ${movesCount}</br>Combo: <span id="combo5">${comboCard}</span>`;
     }
-
+    
+    if(comboCard > bestCombo){
+      bestCombo = comboCard;
+    }
 
   };
 
@@ -261,7 +265,7 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
           
             if (conteurvictoire == Math.floor(cardValues.length / 2)) {
               resultat.innerHTML = `<h2 id="victorytitle">VICTOIRE !</h2>
-              <h4>Mouvements: ${movesCount}</h4>`;
+              <h4>Mouvements: ${movesCount}</br>Meilleur combo: ${bestCombo}</h4>`;
               var victory = new Audio('./audio/victory.wav');
               backgroundmusic.pause();
               victory.play();
@@ -337,8 +341,6 @@ stopButton.addEventListener(
   (stopGame = () => {
     controls.classList.remove("hide");
     stopButton.classList.add("hide");
-    startButton.classList.remove("hide");
-    startDev.classList.remove("hide");
     clearInterval(interval);
   })
 );
