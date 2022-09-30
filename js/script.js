@@ -26,6 +26,7 @@ let findText = document.getElementById("find");
 
 
 
+
   //gestion temps
 
   let seconds = 0, minutes = 0;
