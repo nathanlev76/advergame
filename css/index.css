@@ -86,11 +86,21 @@ h4{
   color: rgb(66, 240, 66)
 }
 
+#bigcombo{
+  color: red;
+  transform: scale(1.1);
+}
+
 .card-before {
   background-color: transparent;
   font-size: 2.8em;
   font-weight: 600;
 }
+
+.card-before:hover{
+  transform: scale(1.1);
+}
+
 .card-after {
   background-color: transparent;
   transform: rotateY(180deg);
