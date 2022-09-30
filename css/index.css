@@ -83,13 +83,33 @@ h4{
 }
 
 #victorytitle{
-  color: rgb(66, 240, 66)
+  color: rgb(66, 240, 66);
+
 }
 
-#bigcombo{
-  color: red;
-  transform: scale(1.1);
+#combo1{
+  color: greenyellow;
 }
+
+#combo2{
+  color: yellow;
+}
+
+#combo3{
+  color: orange;
+}
+
+#combo4{
+  color: red;
+}
+
+#combo5{
+  color: red;
+  text-shadow: 0px -2px 4px #fff, 0px -2px 10px #FF3, 0px -10px 20px         #F90, 0px -20px 40px #C33;
+  transform: scale(1.5);
+}
+
+
 
 .card-before {
   background-color: transparent;

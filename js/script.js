@@ -58,7 +58,25 @@ let findText = document.getElementById("find");
 
   const movesCounter = () => {
     movesCount += 1;
-    moves.innerHTML = `<span>Mouvements:</span> ${movesCount}</br><span>Combo</span>: ${comboCard}`;
+    if(comboCard == 0 || comboCard == 1){
+      moves.innerHTML = `<span>Mouvements:</span> ${movesCount}</br>Combo: <span>${comboCard}</span>`;
+    }
+    else if(comboCard == 2){
+      moves.innerHTML = `<span>Mouvements:</span> ${movesCount}</br>Combo: <span id="combo1">${comboCard}</span>`;
+    }
+    else if(comboCard == 3){
+      moves.innerHTML = `<span>Mouvements:</span> ${movesCount}</br>Combo: <span id="combo2">${comboCard}</span>`;
+    }
+    else if(comboCard == 4){
+      moves.innerHTML = `<span>Mouvements:</span> ${movesCount}</br>Combo: <span id="combo3">${comboCard}</span>`;
+    }
+    else if(comboCard == 5){
+      moves.innerHTML = `<span>Mouvements:</span> ${movesCount}</br>Combo: <span id="combo4">${comboCard}</span>`;
+    }
+    else if(comboCard >= 6){
+      moves.innerHTML = `<span>Mouvements:</span> ${movesCount}</br>Combo: <span id="combo5">${comboCard}</span>`;
+    }
+
 
   };
 
@@ -161,7 +179,7 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
       } 
     else {
       jeuxContainer.innerHTML += 
-      `<div class="card-container" data-card-value="${cardValues[i].name}" card-id="${i}">
+      `<div class="card-container" data-card-value="${cardValues[i].name}" card-id="${i}" card-desc="${cardValues[i].desc}">
        <div class="card-before"><img src="./images/${choixspe.toLowerCase()}_logo.png" height="114" width="114" class="image"/></div>
        <div class="card-after"><img src="${cardValues[i].image}" class="image" height="114" width="114"/></div></div>`;
         }
