@@ -90,7 +90,7 @@ let comboCard = 0;
   }
   else if (choixspe == "Eb"){
     var items = [
-      {name:"img1", image:"./images/eb/adsense.png"},
+      {name:"img1", image:"./images/eb/adsens.png"},
       {name:"img2", image:"./images/eb/analytics.png"},
       {name:"img3", image:"./images/eb/frog.png"},
       {name:"img4", image:"./images/eb/hubspot.png"},
