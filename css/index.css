@@ -14,12 +14,20 @@ body{
     background-repeat: no-repeat;
 }
 
-#title{
+#find, #title{
   font-family: 'Fugaz One';
   margin-top: 1%;
   color: white;
   text-align: center;
   font-size: 140%;
+}
+
+#findcolor{
+  color: greenyellow;
+}
+
+h4{
+  color: white;
 }
 
 /*carre de forme debut*/

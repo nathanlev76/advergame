@@ -15,12 +15,14 @@ let firstCard = false;
 let secondCard = false;
 let firstCardId;
 let secondCardId;
+let secondCardDesc
 let choixspe;
 let blgodmode = false;
 var cardFlip = new Audio('./audio/flip.mp3');
 var cardUnflip = new Audio('./audio/unflip.mp3');
 var backgroundmusic = new Audio('./audio/background-music.mp3');
 let comboCard = 0;
+let findText = document.getElementById("find");
 
 
 
@@ -63,53 +65,52 @@ let comboCard = 0;
   //objects aleatoires
 
   const generateRandom = (choixspe, size = 4) => {
-    console.log(choixspe)
     if (choixspe == "Dev"){
       var items = [
-        {name:"img1", image:"./images/dev/php.png"},
-        {name:"img2", image:"./images/dev/python.png"},
-        {name:"img3", image:"./images/dev/reactjs.png"},
-        {name:"img4", image:"./images/dev/mysql.png"},
-        {name:"img5", image:"./images/dev/java.png"},
-        {name:"img6", image:"./images/dev/cplusplus.png"},
-        {name:"img7", image:"./images/dev/csharp.png"},
-        {name:"img8", image:"./images/dev/html.png"},
+        {name:"php", image:"./images/dev/php.png", desc:"PHP"},
+        {name:"python", image:"./images/dev/python.png", desc: "Python"},
+        {name:"react", image:"./images/dev/reactjs.png", desc: "ReactJS"},
+        {name:"mysql", image:"./images/dev/mysql.png", desc: "MySQL"},
+        {name:"java", image:"./images/dev/java.png", desc: "Java"},
+        {name:"cplusplus", image:"./images/dev/cplusplus.png", desc: "C++"},
+        {name:"csharp", image:"./images/dev/csharp.png", desc: "C#"},
+        {name:"html", image:"./images/dev/html.png", desc: "HTML 5"},
     ];
   }
     else if (choixspe == "Cg"){
       var items = [
-        {name:"img1", image:"./images/cg/Ae.png"},
-        {name:"img2", image:"./images/cg/Figma.png"},
-        {name:"img3", image:"./images/cg/id.png"},
-        {name:"img4", image:"./images/cg/illustrator.png"},
-        {name:"img5", image:"./images/cg/Lightroom.png"},
-        {name:"img6", image:"./images/cg/photoshop.png"},
-        {name:"img7", image:"./images/cg/premiere.png"},
-        {name:"img8", image:"./images/cg/Xd.png"},
+        {name:"ae", image:"./images/cg/Ae.png", desc: "Adobe After Effect"},
+        {name:"figma", image:"./images/cg/Figma.png", desc: "Figma"},
+        {name:"id", image:"./images/cg/id.png", desc: "Adobe InDesign"},
+        {name:"illustrator", image:"./images/cg/illustrator.png", desc: "Adobe Illustrator"},
+        {name:"lightroom", image:"./images/cg/Lightroom.png", desc: "Adobe Lightroom"},
+        {name:"photoshop", image:"./images/cg/photoshop.png", desc: "Adobe Photoshop"},
+        {name:"premiere", image:"./images/cg/premiere.png", desc: "Adobe Premiere Pro"},
+        {name:"xd", image:"./images/cg/Xd.png", desc: "Adobe Experience Design"},
       ];
   }
   else if (choixspe == "Eb"){
     var items = [
-      {name:"img1", image:"./images/eb/adsens.png"},
-      {name:"img2", image:"./images/eb/analytics.png"},
-      {name:"img3", image:"./images/eb/frog.png"},
-      {name:"img4", image:"./images/eb/hubspot.png"},
-      {name:"img5", image:"./images/eb/mailchimp.png"},
-      {name:"img6", image:"./images/eb/semrush.png"},
-      {name:"img7", image:"./images/eb/sheet.png"},
-      {name:"img8", image:"./images/eb/wordpress.png"},
+      {name:"adsens", image:"./images/eb/adsens.png", desc: "Google AdSense"},
+      {name:"analytics", image:"./images/eb/analytics.png", desc: "Google Analytics"},
+      {name:"frog", image:"./images/eb/frog.png", desc: "Screaming Frog"},
+      {name:"hubspot", image:"./images/eb/hubspot.png", desc: "HubSpot"},
+      {name:"mailchimp", image:"./images/eb/mailchimp.png", desc: "MailChimp"},
+      {name:"semrush", image:"./images/eb/semrush.png", desc: "Semrush"},
+      {name:"sheet", image:"./images/eb/sheet.png", desc: "Sheet"},
+      {name:"wordpress", image:"./images/eb/wordpress.png", desc: "WordPress"},
     ];
 }
 else if (choixspe == "Smm"){
   var items = [
-    {name:"img1", image:"./images/smm/facebook.png"},
-    {name:"img2", image:"./images/smm/unnamed.png"},
-    {name:"img3", image:"./images/smm/instagram.png"},
-    {name:"img4", image:"./images/smm/linkedin.png"},
-    {name:"img5", image:"./images/smm/pinterest.png"},
-    {name:"img6", image:"./images/smm/raw.png"},
-    {name:"img7", image:"./images/smm/tiktok.png"},
-    {name:"img8", image:"./images/smm/youtube.png"},
+    {name:"facebook", image:"./images/smm/facebook.png", desc: "Facebook"},
+    {name:"unnamed", image:"./images/smm/unnamed.png", desc: "Gmail"},
+    {name:"instagram", image:"./images/smm/instagram.png", desc: "Instagram"},
+    {name:"linkedin", image:"./images/smm/linkedin.png", desc: "Linkedin"},
+    {name:"pinterest", image:"./images/smm/pinterest.png", desc: "Pinterest"},
+    {name:"raw", image:"./images/smm/raw.png", desc: "Twitter"},
+    {name:"tiktok", image:"./images/smm/tiktok.png", desc: "Tiktok"},
+    {name:"youtube", image:"./images/smm/youtube.png", desc: "Youtube"},
   ];
 }
 
@@ -152,7 +153,7 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
 	for (let i = 0; i < size * size ; i++) {
     if(blgodmode){
       jeuxContainer.innerHTML += `
-      <div class="card-container" data-card-value="${cardValues[i].name}" card-id="${i}">
+      <div class="card-container" data-card-value="${cardValues[i].name}" card-id="${i}" card-desc="${cardValues[i].desc}">
               <div class="card-before"><img src="${cardValues[i].image}" height="114" width="114" class="image"/></div>
               <div class="card-after">
               <img src="${cardValues[i].image}" class="image" height="114" width="114"/></div></div>
@@ -206,7 +207,9 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
           secondCard = card;
           let secondCardValue = card.getAttribute("data-card-value");
           secondCardId = card.getAttribute("card-id");
+          secondCardDesc = card.getAttribute("card-desc");
           if (firstCardValue == secondCardValue && firstCardId != secondCardId) {
+            findText.innerHTML = "Vous avez trouvé: " + "<span id='findcolor'>" + secondCardDesc + "</span>"
             comboCard++;
             if (comboCard == 2){
               var combo2 = new Audio('./audio/add/V1.ogg');
@@ -228,7 +231,6 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
               var combo6 = new Audio('./audio/add/V5.ogg');
               combo6.play();  
             }
-            console.log(comboCard);
             firstCard.classList.add("matched");
             secondCard.classList.add("matched");
             movesCounter();
@@ -250,7 +252,6 @@ const matrixGenerator = (cardValues, choixspe, size = 4) => {
             //si les carte de match pas retour a la normal
             if (firstCardId != secondCardId){
               comboCard = 0;
-              console.log(comboCard);
               let [tempFirst, tempSecond] = [firstCard, secondCard];
               movesCounter();
               comboCard = 0;
