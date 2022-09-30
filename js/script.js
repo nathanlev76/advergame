@@ -278,7 +278,7 @@ startGame = (choixspe) => {
   startSmm.classList.add("hide");
   startCg.classList.add("hide");
 
-  //Start timer
+  //Start timerr
   interval = setInterval(timeGenerator, 1000);
 
   //initial moves
