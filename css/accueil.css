@@ -5,15 +5,15 @@ body{
 }
 
 body{
-    background-image: url('../images/backgroud1.jpg');
+    background-image: url('../images/fond.png');
     background-size: 100%;
 }
 
 
 
 #mainconteneur #nwslogo{
-    height: 120px;
-    width: 120px;
+    height: 200px;
+    width: 200px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -92,7 +92,7 @@ button:hover{
     font-family: 'Fugaz One';
     color: white;
     text-align: center;
-    font-size: 140%;
+    font-size: 200%;
 }
 
 #text{
@@ -100,6 +100,7 @@ button:hover{
     color: white;
     text-align: center;
     margin-top: 80px;
+    font-size: 140%;
     font-weight: 100;
     padding-left: 20%;
     padding-right: 20%;
