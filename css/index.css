@@ -22,6 +22,10 @@ body{
   font-size: 140%;
 }
 
+.spetitle{
+  font-size: 50%;
+}
+
 #findcolor{
   color: greenyellow;
 }
@@ -78,7 +82,7 @@ h4{
   align-items: center;
   justify-content: center;
   /*border: 3px solid #000000;*/
-  transition: transform 0.7s ease-out;
+  transition: transform 0.6s ease-out;
   backface-visibility: hidden;
 }
 
@@ -103,7 +107,17 @@ h4{
   color: red;
 }
 
+#nws1{
+  color: #e94a34;
+}
 
+#nws2{
+  color: #00a5a5;
+}
+
+#nws3{
+  color: #fec800;
+}
 
 #combo5{
   color: red;

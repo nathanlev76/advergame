@@ -9,6 +9,7 @@ const stopButton = document.getElementById("stop");
 const jeuxContainer = document.querySelector(".jeux-container");
 const resultat = document.getElementById("resultat");
 const controls = document.querySelector(".controls-container");
+const title = document.getElementById("title");
 let cards;
 let interval;
 let firstCard = false;
@@ -120,7 +121,7 @@ let bestCombo = 0;
       {name:"hubspot", image:"./images/eb/hubspot.png", desc: "HubSpot"},
       {name:"mailchimp", image:"./images/eb/mailchimp.png", desc: "MailChimp"},
       {name:"semrush", image:"./images/eb/semrush.png", desc: "Semrush"},
-      {name:"sheet", image:"./images/eb/sheet.png", desc: "Sheet"},
+      {name:"sheet", image:"./images/eb/sheet.png", desc: "Google Sheet"},
       {name:"wordpress", image:"./images/eb/wordpress.png", desc: "WordPress"},
     ];
 }
@@ -341,6 +342,7 @@ stopButton.addEventListener(
   (stopGame = () => {
     controls.classList.remove("hide");
     stopButton.classList.add("hide");
+    title.classList.add("hide")
     clearInterval(interval);
   })
 );
@@ -355,7 +357,7 @@ const initializer = (choixspe) => {
 	conteurvictoire = 0;
 	let cardValues = generateRandom(choixspe);
 	matrixGenerator(cardValues, choixspe);
-  backgroundmusic.volume = 0.3
+  backgroundmusic.volume = 0.4
   backgroundmusic.loop = true;
   backgroundmusic.play();
 };
